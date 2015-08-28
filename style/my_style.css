@@ -1,0 +1,222 @@
+body{
+  background: url("../chobi/pp.jpg");
+  position: fixed;
+}
+#project_name{
+  font-size: 45px;
+}
+#header{
+  background-color: #000;
+  color: #fff;
+  margin-left: -8px;
+  margin-top: -30px;
+  height: 65px;
+  width: 1370px;
+  padding-top: 20px;
+}
+#admin_button{
+  margin-top: -75px;
+  margin-right: 190px;
+  position: absolute;
+  margin-left: 1090px;
+  height: 35px;
+  width: 160px;
+  text-decoration: none;
+  text-transform: capitalize;
+  border-style: none;
+  border: 1px solid #4D90FE;
+  border-radius: 5px;
+}
+#admin_button:hover{
+  background-color: #3079ED;
+}
+#header_h2{
+  margin-left: 170px; //this is important
+  text-align: left;
+}
+#body_project_name{
+  margin-left: 160px; //this is important
+  text-align: left;
+  line-height: 90px;
+  text-transform: uppercase;
+  font-size: 40px;
+  letter-spacing: 0.5px;
+  font-weight: 200;
+  font-family: Bodoni MT;
+  text-shadow: 5px 5px 5px #000;
+}
+#lists{
+  list-style: none;
+  position: absolute;
+  float: right;
+  margin-left: 626px;
+  margin-top: -75px;
+  font-size: 20px;
+}
+ul li{
+  display: inline-block;
+  padding: 2px 1px 5px 5px;
+  background-color: #000;
+  border-radius: 3px;
+  font-weight: 500;
+  width: 105px;
+  color: #1E90FF;
+  text-align: center;
+}
+ul li a{
+    display: block;
+    cursor:pointer;
+}
+#drop_down{
+  height: 8px;
+  width: 8px;
+  padding-left: 2px;
+}
+ul li ul{
+  visibility: hidden;
+  position: absolute;
+}
+ul li:hover>ul li{
+  visibility: visible;
+  display: list-item;
+  list-style-type: none;
+  margin-left: -45px;
+  cursor: default;
+  box-shadow: 3px 3px 9px #000;
+  border-bottom-color: #fff;
+  border-bottom-style: inset;
+  padding-top: 0.5px;
+}
+#inner_link{
+  text-decoration: none;
+  color: #1E90FF;
+}
+#inner_link:visited{
+  color: #1E90FF;
+}
+.inner_home{
+  margin-top: 4.5px;
+}
+ul li ul li a{
+  text-decoration: none;
+  color: #1E90FF;
+  letter-spacing: 0.2px;
+}
+.r1-button{
+  background-color:transparent;
+  border-radius:2%;
+  width:170px;
+  height:60px;
+  color:white;
+  position: absolute;
+}
+.r1-button:hover{
+  background-color: #556B2F;
+}
+.r2-submit{
+  background-color: #1E90FF;
+  border-radius:2%;
+  width:170px;
+  height:60px;
+  color:white;
+  position: absolute;
+  margin-left: 220px;
+}
+.r2-submit:hover{
+  background-color: #556B2F;
+}
+#buttons{
+  margin-top: 300px;
+  margin-left: 170px;
+}
+#clk_bg{
+  position: absolute;
+  margin-left: 1000px;
+  height: 150px;
+  width: 400px;
+}
+#clock{
+  font-size: 60px;
+  margin-left: 1105px;
+  position: fixed;
+  margin-top: 35px;
+  color: #fff;
+}
+/*new code from here*/
+
+fieldset{
+  width: 365px;
+  position: absolute;
+  margin-left: 170px;
+  margin-top: 150px;
+  border-radius: 3.5px;
+  font-style:oblique;
+  color:black;
+  background : linear-gradient(#D3D3D3 , #fff);
+  background: -moz-linear-gradient(#D3D3D3 , #fff);
+  background: -webkit-linear-gradient(#D3D3D3 , #fff);
+  box-shadow: 15px 18px 15px black;
+  border-radius: 10px;
+  padding-bottom: 5px;
+}
+#usrname{
+  width: 265px;
+}
+#forget{
+  margin-left: 7px;
+}
+#wait{
+    
+    height: 25px;
+    width: 25px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+input[type="submit"]{
+	border: 1px solid #4D90FE;
+	border-color: #4D90FE;
+	width: 90px;
+	border-radius: 2.5px;
+	background-color: #4D90FE;
+	color: #fff;
+    margin-left: 20px;
+	font-size: 14px;
+	height: 25px;
+}
+input[type="submit"]:hover{
+	background-color: #3079ED;
+}
+input[type="text"],
+input[type="password"]{
+    border-radius: 5px;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4D90FE;
+    box-shadow: 1px 1px 19px #4D90FE;
+}
+#leg_end{
+    color:#000;
+    font-size:18px;
+    font-family:Calibri;
+}
+.admin_button{
+  margin-top: -75px;
+  margin-right: 190px;
+  position: absolute;
+  margin-left: 1090px;
+  height: 35px;
+  width: 160px;
+  color: #1E90FF;
+  font-size:18px;
+  font-family:Arial;
+  text-decoration: none;
+  text-transform: capitalize;
+  text-align: justify;
+  border-style: none;
+  border: 1px solid #4D90FE;
+  border-radius: 5px;
+}
+.admin_button:hover{
+  background-color: rgba(0, 0, 0, 0.76);
+}

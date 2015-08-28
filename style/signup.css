@@ -1,0 +1,98 @@
+body{
+	background-repeat: none;
+    background-size:1400px 700px;
+    color: white;
+	background-attachment: fixed;
+}
+fieldset{
+	box-sizing: border-box;/*for box sizing*/
+	width: 45%;/*for box sizing*/
+	margin-left: auto;/*for box aliging in center*/
+	margin-right: auto;
+	border-style: dotted;/*for border style*/
+	box-shadow: 15px 18px 15px black;/*for box shadow*/
+	border-radius: 20px;/*for box corners*/
+}
+label{
+	float: left;
+	width: 140px;
+	display: block;
+	padding-left: 1.5cm;/*padding them to make symmetric*/
+	font-size: 15px;
+}
+span{
+	text-decoration: none;/*text decoration for underline or stroke*/
+	color: #CC0033;/*text color*/
+	text-align: center;
+	font-style: italic;
+	padding-left: 88px;
+	font-family: "Times New Roman",Times,Monospace;
+    margin: 0.5em 0px 0px;
+    color: #DD4B39;
+    line-height: 17px;
+}
+#submit{
+	margin-left: 5.5cm;
+	margin-top: 16px;
+}
+#profile_image{
+	border-radius: 50%;
+	
+}
+#profile_image_block{
+	padding-left: 41%;
+	padding-right: 41%;
+    padding-bottom: 2%;
+}
+input[type="email"],
+input[type="text"],
+input[type="password"]{
+    width: 240px;
+}
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus{
+	box-shadow: 1px 1px 19px #4D90FE;
+}
+input[type="submit"]{
+	border: 1px solid #4D90FE;
+	border-color: #4D90FE;
+	width: 150px;
+	border-radius: 2.5px;
+	background-color: #4D90FE;
+	color: #fff;
+	font-size: 17px;
+	height: 30px;
+}
+input[type="submit"]:hover{
+	background-color: #3079ED;
+}
+.banner{
+	position: relative;
+	margin-left: -18px;
+	background-attachment: fixed;
+}
+.company_name{
+	position: absolute;
+	margin-top: -110.4px;
+	margin-left: -7px;
+	padding-left: 2cm;
+	background-attachment: fixed;
+	color: #00FFFF;
+}
+.moto{
+	position: absolute;
+	margin-top: -75.5px;
+	padding-left: 3cm;
+	margin-left: -12px;
+	background-attachment: fixed;
+	color: #FFD700;
+}
+/*input[type="date"] {
+   -moz-binding: url('chrome://global/content/bindings/datetimepicker.xml');
+}
+input.error[type="email"],
+input.error[type="text"],
+input.error[type="password"]{
+	border: 1px solid #DD4B39;
+}*/

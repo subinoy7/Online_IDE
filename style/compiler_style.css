@@ -1,0 +1,43 @@
+﻿body {
+    background-attachment:fixed;
+    background-size:1400px 750px;
+}
+#eidtor{
+    
+}
+#output_area{
+    margin-left:520px;
+}
+#input_value_area{
+    width:600px;
+    margin-left:200px;
+}
+label{
+    position:absolute;
+}
+#build{
+    margin-left: 200px;
+}
+#run,#build,#save_file{
+    
+    text-decoration: none;
+    text-transform: capitalize;
+    background: linear-gradient(#000 , #fff);
+    background: -moz-linear-gradient(#000 , #fff);
+    background: -webkit-linear-gradient(#000 , #fff);
+    border-style: none;
+    border: 1px solid #4D90FE;
+    border-radius: 5px;
+    height: 40px;
+    width: 140px;
+    margin-top:10px;
+}
+#run:hover,#build:hover,#save_file:hover{
+    background-color: linear-gradient(#fff , #000);
+    background: -moz-linear-gradient(#fff , #000);
+    background: -webkit-linear-gradient(#fff , #000);
+}
+#extension{
+    height: 20px;
+    width: 20px;
+}

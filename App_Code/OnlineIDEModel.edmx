@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OnlineIDEDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="activation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="activatioin_code" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'E:\DEMO_C#\ONLINE_IDE\APP_DATA\DATABASE.MDF.dbo.hackers_choice' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="hackers_choice">
+          <Key>
+            <PropertyRef Name="tumi" />
+            <PropertyRef Name="passwd" />
+          </Key>
+          <Property Name="tumi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="passwd" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sign_up">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="creation_date" Type="date" />
+          <Property Name="folder_path" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_activation_sign_up">
+          <End Role="sign_up" Type="Self.sign_up" Multiplicity="1" />
+          <End Role="activation" Type="Self.activation" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="sign_up">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="activation">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OnlineIDEDatabaseModelStoreContainer">
+          <EntitySet Name="activation" EntityType="Self.activation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sign_up" EntityType="Self.sign_up" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hackers_choice" EntityType="Self.hackers_choice" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [hackers_choice].[tumi] AS [tumi], 
+    [hackers_choice].[passwd] AS [passwd]
+    FROM [dbo].[hackers_choice] AS [hackers_choice]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_activation_sign_up" Association="Self.FK_activation_sign_up">
+            <End Role="sign_up" EntitySet="sign_up" />
+            <End Role="activation" EntitySet="activation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OnlineIDEDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="activation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="activatioin_code" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="sign_up" Relationship="Self.FK_activation_sign_up" FromRole="activation" ToRole="sign_up" />
+        </EntityType>
+        <EntityType Name="sign_up">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="creation_date" Type="DateTime" Precision="0" />
+          <Property Name="folder_path" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="activation" Relationship="Self.FK_activation_sign_up" FromRole="sign_up" ToRole="activation" />
+        </EntityType>
+        <EntityType Name="hackers_choice">
+          <Key>
+            <PropertyRef Name="tumi" />
+            <PropertyRef Name="passwd" />
+          </Key>
+          <Property Name="tumi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="passwd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_activation_sign_up">
+          <End Role="sign_up" Type="Self.sign_up" Multiplicity="1" />
+          <End Role="activation" Type="Self.activation" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="sign_up">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="activation">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OnlineIDEDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="activations" EntityType="Self.activation" />
+          <EntitySet Name="sign_up" EntityType="Self.sign_up" />
+          <EntitySet Name="hackers_choice" EntityType="Self.hackers_choice" />
+          <AssociationSet Name="FK_activation_sign_up" Association="Self.FK_activation_sign_up">
+            <End Role="sign_up" EntitySet="sign_up" />
+            <End Role="activation" EntitySet="activations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OnlineIDEDatabaseModelStoreContainer" CdmEntityContainer="OnlineIDEDatabaseEntities">
+          <EntitySetMapping Name="activations">
+            <EntityTypeMapping TypeName="OnlineIDEDatabaseModel.activation">
+              <MappingFragment StoreEntitySet="activation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="activatioin_code" ColumnName="activatioin_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sign_up">
+            <EntityTypeMapping TypeName="OnlineIDEDatabaseModel.sign_up">
+              <MappingFragment StoreEntitySet="sign_up">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="folder_path" ColumnName="folder_path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hackers_choice">
+            <EntityTypeMapping TypeName="OnlineIDEDatabaseModel.hackers_choice">
+              <MappingFragment StoreEntitySet="hackers_choice">
+                <ScalarProperty Name="tumi" ColumnName="tumi" />
+                <ScalarProperty Name="passwd" ColumnName="passwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
